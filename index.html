@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>LVL1 Penal Code</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js" defer></script>
+</head>
+<body>
+<div class="page">
+    <header class="page-header">
+        <h1><img src="images/Favicon512.png" alt="LVL1 Logo" class="logo" /> Penal Code</h1>
+
+        <div class="search-container">
+            <input
+                type="text"
+                id="charge-search"
+                placeholder="Search charges..."
+                autocomplete="off"
+            />
+        </div>
+    </header>
+
+    <div class="legend">
+        <span class="legend-item">
+            <span class="legend-swatch green"></span> Infraction / Lowest
+        </span>
+        <span class="legend-item">
+            <span class="legend-swatch orange"></span> Misdemeanor / Medium
+        </span>
+        <span class="legend-item">
+            <span class="legend-swatch red"></span> Felony / Highest
+        </span>
+        <span class="note">Hover a charge to view its description.</span>
+    </div>
+
+    <div id="penal-code-root"></div>
+</div>
+</body>
+</html>
