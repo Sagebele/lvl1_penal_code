@@ -88,7 +88,11 @@ const penalCode = {
         {title: 'Violating a Court Order', class: 'Misdemeanor', id: 'P.C. 5015', months: 0, fine: 0, color: 'orange', description: 'The infringement of court ordered documentation'},
         {title: 'Failure to Appear', class: 'Misdemeanor', id: 'P.C. 5016', months: 0, fine: 0, color: 'orange', description: 'When someone who is legally bound to appear in court does not do so'},
         {title: 'Contempt of Court', class: 'Felony', id: 'P.C. 5017', months: 10, fine: 1000, color: 'red', description: 'The disruption of court proceedings in a courtroom while it is in session (judicial decision)' },
-        {title: 'Resisting Arrest', class: 'Misdemeanor', id: 'P.C. 5018', months: 5, fine: 300, color: 'orange', description: 'The act of not allowing peace officers to take you into custody willingly'}
+        {title: 'Resisting Arrest', class: 'Misdemeanor', id: 'P.C. 5018', months: 5, fine: 300, color: 'orange', description: 'The act of not allowing peace officers to take you into custody willingly'},
+        {title: 'Mail Tampering', class: 'Misdemeanor', id: 'P.C. 5019', months: 10, fine: 700, color: 'orange', description: 'The act of interfering with, damaging, or obstructing mail or packages that are not addressed to oneself'},
+        {title: 'Misdemeanor Possession of Government Documents', class: 'Misdemeanor', id: 'P.C. 5020', months: 10, fine: 800, color: 'orange', description: 'Being in possession of seven (7) or fewer nonpublic government documents without authorization'},
+        {title: 'Felony Possession of Government Documents', class: 'Felony', id: 'P.C. 5021', months: 20, fine: 1500, color: 'red', description: 'Being in possession of eight (8) or more nonpublic government documents without authorization'},
+
     ],
     6: [
         {title: 'Disobeying a Peace Officer', class: 'infraction', id: 'P.C. 6001', months: 0, fine: 500, color: 'green', description: 'The willful disregard of a lawful order'},
