@@ -211,16 +211,16 @@ const penalCode = {
 
 // Optional category subtitles:
 const categorySubtitles = {
-    1: 'Crimes Against Persons',
-    2: 'Property & Theft Offenses',
-    3: 'Fraud & Identity',
-    4: 'Property Damage & Trespass',
-    5: 'Government & Judicial',
-    6: 'Public Order',
-    7: 'Narcotics & Alcohol',
-    8: 'Weapons & Explosives',
-    9: 'Traffic & Driving',
-    10: 'Wildlife & Hunting'
+    1: '1. Crimes Against Persons',
+    2: '2. Property & Theft Offenses',
+    3: '3. Fraud & Identity',
+    4: '4. Property Damage & Trespass',
+    5: '5. Government & Judicial',
+    6: '6. Public Order',
+    7: '7. Narcotics & Alcohol',
+    8: '8. Weapons & Explosives',
+    9: '9. Traffic & Driving',
+    10: '10. Wildlife & Hunting'
 };
 
 // --- RENDERING -------------------------------------------------------------
