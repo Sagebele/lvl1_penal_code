@@ -225,6 +225,7 @@ const categorySubtitles = {
 
 // --- RENDERING -------------------------------------------------------------
 document.addEventListener('DOMContentLoaded', () => {
+
     const root = document.getElementById('penal-code-root');
     if (!root) return;
 
@@ -306,12 +307,25 @@ document.addEventListener('DOMContentLoaded', () => {
                 tooltip.appendChild(tooltipTitle);
                 tooltip.appendChild(tooltipBody);
 
+                // Expanded content (created once, shown only when card is expanded)
+                const expandedContent = document.createElement('div');
+                expandedContent.className = 'expanded-content';
+                expandedContent.innerHTML = `
+                    <div class="expanded-title">${charge.title}</div>
+                    <div class="expanded-description">${charge.description || 'No description provided.'}</div>
+                    <div class="expanded-details">
+                        <span><strong>Jail Time:</strong> ${charge.months} months</span>
+                        <span><strong>Fine:</strong> $${charge.fine}</span>
+                        <span><strong>Class:</strong> ${charge.class}</span>
+                    </div>
+                `;
+
                 card.appendChild(titleRow);
                 card.appendChild(meta);
                 card.appendChild(classPill);
                 card.appendChild(tooltip);
+                card.appendChild(expandedContent);
 
-                // add combined searchable text (lowercased) for this card
                 // searchable only by title + code (id) + class
                 card.dataset.search = [
                     charge.title,
@@ -319,6 +333,21 @@ document.addEventListener('DOMContentLoaded', () => {
                     charge.class    // e.g. "Felony", "Misdemeanor", "Infraction"
                 ].join(' ').toLowerCase();
 
+                // Click to expand/collapse
+                card.addEventListener("click", () => {
+                    const alreadyExpanded = card.classList.contains("expanded");
+
+                    // collapse others
+                    document.querySelectorAll(".charge-card.expanded").forEach(c => {
+                        c.classList.remove("expanded");
+                    });
+
+                    // toggle this one
+                    if (!alreadyExpanded) {
+                        card.classList.add("expanded");
+                        card.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    }
+                });
 
                 grid.appendChild(card);
             });
@@ -327,8 +356,10 @@ document.addEventListener('DOMContentLoaded', () => {
             root.appendChild(section);
         });
 
-            // --- SEARCH / FILTER ----------------------------------------------------
+    // --- SEARCH / FILTER ----------------------------------------------------
     const searchInput = document.getElementById('charge-search');
+    const noResultsEl = document.getElementById('no-results');
+
     if (searchInput) {
         searchInput.addEventListener('input', (e) => {
             const query = e.target.value.trim().toLowerCase();
@@ -353,7 +384,18 @@ document.addEventListener('DOMContentLoaded', () => {
                     categoryEl.classList.add('hidden');
                 }
             });
+
+            // Show "No charges found" if nothing matches
+            if (noResultsEl) {
+                const anyVisibleCard = document.querySelector('.charge-card:not(.hidden)');
+                if (query && !anyVisibleCard) {
+                    noResultsEl.classList.remove('hidden');
+                } else {
+                    noResultsEl.classList.add('hidden');
+                }
+            }
         });
     }
 
 });
+

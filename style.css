@@ -195,6 +195,48 @@ h1 {
 }
 
 
+.charge-card.expanded {
+    grid-column: 1 / -1;               /* full width */
+    padding: 20px 22px;
+    background: rgba(15, 23, 42, 0.95);
+    border-left-width: 6px;
+    border-radius: 12px;
+    transform: none;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.6);
+}
+
+.charge-card.expanded .tooltip {
+    display: none; /* no hover tooltip while expanded */
+}
+
+.expanded-content {
+    display: none;
+    margin-top: 12px;
+    line-height: 1.4;
+}
+
+.charge-card.expanded .expanded-content {
+    display: block;
+}
+
+.expanded-title {
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+.expanded-description {
+    opacity: 0.9;
+    margin-bottom: 12px;
+}
+
+.expanded-details span {
+    display: block;
+    margin-bottom: 4px;
+}
+
+
+
 .charge-title-row {
     display: flex;
     justify-content: space-between;
@@ -313,6 +355,15 @@ h1 {
     display: none !important;
 }
 
+.no-results {
+    text-align: center;
+    margin-top: 40px;
+    font-size: 0.9rem;
+    color: #9ca3af;
+    opacity: 0.9;
+}
+
+
 /* ===== Responsive ===== */
 
 @media (max-width: 600px) {
@@ -331,3 +382,4 @@ h1 {
         max-width: 90vw;
     }
 }
+
