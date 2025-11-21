@@ -237,13 +237,13 @@ document.addEventListener('DOMContentLoaded', () => {
             const section = document.createElement('section');
             section.className = 'category';
 
-    const header = document.createElement('div');
-    header.className = 'category-header';
+            const header = document.createElement('div');
+            header.className = 'category-header';
 
-const titleText = categorySubtitles[categoryKey] || `Category ${categoryKey}`;
-header.textContent = titleText;
+            const titleText = categorySubtitles[categoryKey] || `Category ${categoryKey}`;
+            header.textContent = titleText;
 
-section.appendChild(header);
+            section.appendChild(header);
 
             const grid = document.createElement('div');
             grid.className = 'charges-grid';
@@ -252,9 +252,18 @@ section.appendChild(header);
                 const card = document.createElement('div');
                 card.className = 'charge-card';
 
-                // Color strip from charge.color (green/orange/red)
+                // Color strip + subtle background tint from charge.color
                 if (charge.color) {
                     card.style.borderLeftColor = charge.color;
+
+                    const bgMap = {
+                        green: 'rgba(34, 197, 94, 0.10)',
+                        orange: 'rgba(249, 115, 22, 0.10)',
+                        red: 'rgba(239, 68, 68, 0.10)'
+                    };
+
+                    const tint = bgMap[charge.color] || 'rgba(15, 23, 42, 0.9)';
+                    card.style.background = `linear-gradient(135deg, ${tint}, rgba(15, 23, 42, 0.95))`;
                 }
 
                 const titleRow = document.createElement('div');
@@ -274,7 +283,6 @@ section.appendChild(header);
                 const meta = document.createElement('div');
                 meta.className = 'charge-meta';
                 meta.innerHTML =
-                    `<span><strong>Class:</strong> ${charge.class}</span>` +
                     `<span><strong>Months:</strong> ${charge.months}</span>` +
                     `<span><strong>Fine:</strong> $${charge.fine}</span>`;
 
