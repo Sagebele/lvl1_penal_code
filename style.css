@@ -7,10 +7,11 @@
 body {
     margin: 0;
     padding: 0;
-    font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-    background: radial-gradient(circle at top, #1e293b 0, #020617 55%, #000 100%);
+    font-family: "Poppins", "Inter", system-ui, -apple-system, sans-serif;
+    background: radial-gradient(circle at top, #1e293b 0, #050e36 55%, #000 100%);
     color: #e5e7eb;
 }
+
 
 .page {
     max-width: 1200px;
@@ -28,6 +29,8 @@ body {
     margin-bottom: 20px;
     padding-bottom: 8px;
     border-bottom: 1px solid rgba(148, 163, 184, 0.25);
+    user-select: none
+
 }
 
 .logo{
@@ -51,6 +54,8 @@ h1 {
     min-width: 220px;
     max-width: 320px;
     flex-shrink: 0;
+    user-select: none
+
 }
 
 #charge-search {
@@ -96,6 +101,8 @@ h1 {
     gap: 8px;
     margin-bottom: 20px;
     font-size: 0.85rem;
+    user-select: none
+
 }
 
 .legend-item {
@@ -141,17 +148,20 @@ h1 {
     margin-bottom: 32px;
     padding: 16px 18px 20px;
     border-radius: 16px;
-    background: rgba(15, 23, 42, 0.8);
+    background: rgba(27, 37, 58, 0.8);
     border: 1px solid #1f2933;
+
 }
 
 /* Centered section title with lines on sides */
 .category-header {
+    caret-color: transparent;
     font-size: 1rem;
     font-weight: 600;
     text-align: center;
     margin: 1em 0 2em;
     color: #e5e7eb;
+
 }
 
 .category-header::before,
@@ -217,6 +227,8 @@ h1 {
 
 .charge-card.expanded .expanded-content {
     display: block;
+    caret-color: transparent;
+
 }
 
 /* Hide tooltip while expanded */
@@ -249,6 +261,8 @@ h1 {
     align-items: baseline;
     gap: 6px;
     margin-bottom: 2px;
+    caret-color: transparent;
+
 }
 
 .charge-title {
@@ -287,7 +301,7 @@ h1 {
     background: rgba(255, 255, 255, 0.05);    /* subtle soft background */
     border: 1px solid rgba(255,255,255,0.08); /* light faint border */
     color: #d1d5db;
-    user-select: none
+    user-select: none;
 }
 
 .charge-class-pill.misdemeanor {
