@@ -220,16 +220,21 @@ h1 {
 }
 
 .expanded-content {
-    display: none;
-    margin-top: 12px;
-    line-height: 1.4;
+    height: 0;
+    overflow: hidden;
+    opacity: 0;
+    margin-top: 0;
+    transition:
+        height 0.25s ease,
+        opacity 0.2s ease,
+        margin-top 0.25s ease;
 }
-
+/* 
 .charge-card.expanded .expanded-content {
     display: block;
     caret-color: transparent;
 
-}
+} */
 
 /* Hide tooltip while expanded */
 .charge-card.expanded .tooltip {

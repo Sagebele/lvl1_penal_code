@@ -113,18 +113,41 @@ document.addEventListener('DOMContentLoaded', () => {
                 // Click to expand/collapse
                 card.addEventListener("click", () => {
                     const alreadyExpanded = card.classList.contains("expanded");
+                    const thisContent = card.querySelector('.expanded-content');
 
-                    // collapse others
+                    // Collapse all other expanded cards
                     document.querySelectorAll(".charge-card.expanded").forEach(c => {
+                        if (c === card) return;
                         c.classList.remove("expanded");
+                        const content = c.querySelector('.expanded-content');
+                        if (content) {
+                            content.style.height = '0px';
+                            content.style.opacity = '0';
+                            content.style.marginTop = '0';
+                        }
                     });
 
-                    // toggle this one
-                    if (!alreadyExpanded) {
+                    if (alreadyExpanded) {
+                        // collapse this one
+                        card.classList.remove("expanded");
+                        if (thisContent) {
+                            thisContent.style.height = '0px';
+                            thisContent.style.opacity = '0';
+                            thisContent.style.marginTop = '0';
+                        }
+                    } else {
+                        // expand this one
                         card.classList.add("expanded");
+                        if (thisContent) {
+                            const fullHeight = thisContent.scrollHeight;
+                            thisContent.style.height = fullHeight + 'px';
+                            thisContent.style.opacity = '1';
+                            thisContent.style.marginTop = '12px';
+                        }
                         card.scrollIntoView({ behavior: 'smooth', block: 'center' });
                     }
                 });
+
 
                 grid.appendChild(card);
             });
